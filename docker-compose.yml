@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: ucatecdb
+      POSTGRES_PASSWORD: Ucatec2025
+      POSTGRES_DB: examen_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_container
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: kevin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+
+volumes:
+  postgres_data:
+  mongo_data:
